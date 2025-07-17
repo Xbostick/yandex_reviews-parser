@@ -59,7 +59,7 @@ class Parser:
             date = None
 
         try:
-            text = elem.find_element(By.XPATH, ".//span[@class='business-review-view__body-text']").text
+            text = elem.find_element(By.XPATH, ".//span[@class=' spoiler-view__text-container']").text
         except NoSuchElementException:
             text = None
         try:
@@ -112,7 +112,7 @@ class Parser:
             xpath_count_rating = ".//div[@class='business-summary-rating-badge-view__rating-count']/span[@class='business-rating-amount-view _summary']"
             count_rating_list = rating_block.find_element(By.XPATH, xpath_count_rating).text
             count_rating = ParserHelper.list_to_num(count_rating_list)
-            xpath_stars = ".//div[@class='business-rating-badge-view__stars _spacing_normal']/span"
+            xpath_stars = ".//div[@class='business-rating-badge-view__stars']/span"
             stars = ParserHelper.get_count_star(rating_block.find_elements(By.XPATH, xpath_stars))
         except NoSuchElementException:
             rating = 0
